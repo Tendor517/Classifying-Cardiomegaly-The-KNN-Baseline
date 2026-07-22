@@ -32,4 +32,4 @@ This repository includes a Streamlit web application to visualize the Confusion 
 **1. Clone the repository and navigate to the directory:**
 ```bash
 git clone [https://github.com/Tendor517/Classifying-Cardiomegaly-The-KNN-Baseline.git](https://github.com/Tendor517/Classifying-Cardiomegaly-The-KNN-Baseline.git)
-cd CNN-for-Visual-Recognition
+cd Classifying-Cardiomegaly-The-KNN-Baseline
