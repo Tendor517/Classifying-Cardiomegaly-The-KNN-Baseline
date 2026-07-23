@@ -33,3 +33,31 @@ This repository includes a Streamlit web application to visualize the Confusion 
 ```bash
 git clone [https://github.com/Tendor517/Classifying-Cardiomegaly-The-KNN-Baseline.git](https://github.com/Tendor517/Classifying-Cardiomegaly-The-KNN-Baseline.git)
 cd Classifying-Cardiomegaly-The-KNN-Baseline
+
+## 🛠️ Developer Guide: Local Setup & Execution Pipeline
+
+After cloning the repository, install the dependencies, and execute the machine learning pipeline from scratch, follow the step-by-step instructions below.
+
+### 1. Install Required Packages
+Open your terminal inside the project directory and run the following command to install all necessary Python packages for data processing, classical ML, visualization, and web deployment:
+```bash
+pip install numpy scikit-learn matplotlib seaborn medmnist streamlit
+
+Step 1: Understand the Core Engine (knn.py)
+What it is: This is the standalone utility module containing the custom KNearestNeighbor class and the zero-loop vectorized L2 distance calculation.
+Action Required: Do not run this file directly. It acts as the backend engine and is automatically imported by the execution scripts below.
+
+Step 2: Run Hyperparameter Optimization (kfold_cross_validation_loop.py)
+Purpose: Executes a 5-Fold Cross-Validation search across various k-values (k∈[1,20]) to discover the optimal number of neighbors for cardiomegaly detection.
+```bash
+python3 kfold_cross_validation_loop.py
+
+Step 3: Execute Full Model Evaluation (balanced_training.py)
+Purpose: Runs the end-to-end production pipeline. It loads the ChestMNIST dataset, applies majority-class undersampling to fix the 97% data skew, normalizes image arrays to [0,1], and evaluates the optimal model.
+```bash
+python3 balanced_training.py
+
+Step 4: Launch the Interactive Web Dashboard (app.py)
+Purpose: Starts a local web server hosting the frontend Streamlit UI, allowing you or end-users to dynamically adjust k-values and inspect confusion matrix heatmaps in real time.
+```bash
+streamlit run app.py
